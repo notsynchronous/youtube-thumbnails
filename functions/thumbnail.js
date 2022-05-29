@@ -37,7 +37,12 @@ exports.handler = async function (event, context) {
 
     screenshot = await page.screenshot({ encoding: "binary" });
   } catch (err) {
-    return err;
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        error: err,
+      }),
+    };
   } finally {
     await browser.close();
   }
