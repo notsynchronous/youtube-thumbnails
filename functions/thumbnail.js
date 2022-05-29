@@ -2,10 +2,6 @@ const chromium = require("chrome-aws-lambda");
 const fs = require("fs");
 const path = require("path");
 
-const html = fs.readFileSync(path.resolve(__dirname, "./template.html"), {
-  encoding: "utf-8",
-});
-
 exports.handler = async function (event, context) {
   const { title, tagColor, tagTitle, imageURL } = JSON.parse(event.body);
   let screenshot = null;
@@ -22,6 +18,10 @@ exports.handler = async function (event, context) {
     });
 
     const page = await browser.newPage();
+    const html = await fs.promises.readFile(
+      path.join(__dirname, "..", "/helpers/template.html"),
+      "utf8"
+    );
 
     await page.setContent(html);
     // "https://n-magazine.com/wp-content/uploads/2021/04/spotify-icon-green-logo-8.png"
