@@ -7,12 +7,12 @@ exports.handler = async function (event, context) {
   let browser = null;
 
   try {
-    await chromium.executablePath,
-      (browser = await chromium.puppeteer.launch({
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        headless: chromium.headless,
-      }));
+    browser = await chromium.puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      headless: chromium.headless,
+      executablePath: await chromium.executablePath,
+    });
 
     const page = await browser.newPage();
     const html = fs.readFileSync("./index.html", "utf-8");
