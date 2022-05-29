@@ -11,7 +11,9 @@ exports.handler = async function (event, context) {
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
       headless: chromium.headless,
-      executablePath: await chromium.executablePath,
+      executablePath: process.env.URL.includes("localhost")
+        ? null
+        : await chromium.executablePath,
     });
 
     const page = await browser.newPage();
