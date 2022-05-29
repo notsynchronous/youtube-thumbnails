@@ -3,12 +3,13 @@ const fs = require("fs");
 
 exports.handler = async function (event, context) {
   const { title, tagColor, tagTitle, imageURL } = JSON.parse(event.body);
-  const executablePath = await chromium.executablePath,
-    browser = await chromium.puppeteer.launch({
-      args: chromium.args,
-      defaultViewport: chromium.defaultViewport,
-      headless: chromium.headless,
-    });
+
+  const browser = await chromium.puppeteer.launch({
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    headless: chromium.headless,
+    executablePath: await chromium.executablePath,
+  });
 
   const page = await browser.newPage();
   const html = fs.readFileSync("index.html", "utf-8");
