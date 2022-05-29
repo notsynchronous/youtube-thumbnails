@@ -17,6 +17,8 @@ exports.handler = async function (event, context) {
         : await chromium.executablePath,
     });
 
+    console.log(path.join(__dirname));
+
     const page = await browser.newPage();
     const html = await fs.readFile(path.join(__dirname, "index.html"));
 
