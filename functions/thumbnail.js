@@ -17,10 +17,10 @@ exports.handler = async function (event, context) {
         : await chromium.executablePath,
     });
 
-    console.log(path.join(__dirname));
-
     const page = await browser.newPage();
-    const html = await fs.readFile(path.join(__dirname, "index.html"));
+    const html = await fs.readFile(path.join(__dirname, "./template.html"), {
+      encoding: "utf-8",
+    });
 
     await page.setContent(html);
     // "https://n-magazine.com/wp-content/uploads/2021/04/spotify-icon-green-logo-8.png"
