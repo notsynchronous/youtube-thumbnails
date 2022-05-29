@@ -1,5 +1,5 @@
 const chromium = require("chrome-aws-lambda");
-const fs = require("fs");
+const fs = require("fs").promises;
 const path = require("path");
 
 exports.handler = async function (event, context) {
@@ -18,7 +18,7 @@ exports.handler = async function (event, context) {
     });
 
     const page = await browser.newPage();
-    const html = fs.readFileSync(path.join(__dirname, "index.html"), "utf-8");
+    const html = await fs.readFile(path.join(__dirname, "index.html"));
 
     await page.setContent(html);
     // "https://n-magazine.com/wp-content/uploads/2021/04/spotify-icon-green-logo-8.png"
