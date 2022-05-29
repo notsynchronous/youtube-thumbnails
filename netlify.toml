@@ -1,8 +1,7 @@
-
 [dev]
   functions = "functions"
   publish = "public"
 
 [build]
-  publish = "public/"
+  publish = "public"
   functions = "functions"

@@ -18,7 +18,7 @@ exports.handler = async function (event, context) {
     });
 
     const page = await browser.newPage();
-    const html = await fs.readFile(path.join(__dirname, "./template.html"), {
+    const html = await fs.readFile(require.resolve("./template.html"), {
       encoding: "utf-8",
     });
 
