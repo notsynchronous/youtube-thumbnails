@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Thumbs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- https://bitsofco.de/how-to-use-puppeteer-in-a-netlify-aws-lambda-function/ -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css" />
+</head>
+
+<body>
+    <main class="p-5">
+        <header class="mb-6">
+            <h1 class="font-extrabold text-4xl">Thumbs</h1>
+            <p>Generate thumbnails using templates.</p>
+        </header>
+
+        <form id="thumbmeta">
+            <div class="grid gap-6 mb-6 lg:grid-cols-2">
+                <div>
+                    <label for="title" class="block mb-2 text-sm font-medium">Name
+                        of the video:</label>
+                    <input type="text" id="page" name="title" aria-label="URL" value=""
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                </div>
+                <div>
+                    <label for="tagTitle" class="block mb-2 text-sm font-medium">Tag Title: </label>
+                    <input type="text" id="tagTitle" name="tagTitle" value=""
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                </div>
+                <div>
+                    <label for="tagColor" class="block mb-2 text-sm font-medium">Tag Color: </label>
+                    <input type="color" name="tagColor" class="bg-gray-50 border border-gray-300 text-gray-900
+                        text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                </div>
+                <div>
+                    <label for="imageURL" class="block mb-2 text-sm font-medium">Image URL: </label>
+                    <input type="url" name="imageURL" class="bg-gray-50 border border-gray-300 text-gray-900
+                    text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                </div>
+
+            </div>
+            <button
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                type="submit">Screenshot!</button>
+        </form>
+
+        <div id="result" aria-live="polite"></div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+</body>
+
+</html>

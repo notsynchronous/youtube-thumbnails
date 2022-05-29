@@ -1,0 +1,46 @@
+@import url("https://rsms.me/inter/inter.css");
+html {
+  font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+body {
+  line-height: 1.6;
+  font-size: 15px;
+  font-family: "Inter";
+  font-weight: 300;
+  background-color: #141414;
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+#result {
+  margin: 20px 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="color"] {
+  height: 42px;
+}
